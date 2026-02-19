@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>খাদ্য পরিকল্পনা | গ্লাইকোচেক</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body class="bengali">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="GLYCOCHECK Logo" class="navbar-logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i> হোম
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bmi.html">
+                            <i class="fas fa-calculator me-1"></i> বিএমআই ক্যালকুলেটর
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="risk-assessment.html">
+                            <i class="fas fa-stethoscope me-1"></i> ঝুঁকি মূল্যায়ন
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="health-data.html">
+                            <i class="fas fa-heartbeat me-1"></i> স্বাস্থ্য তথ্য
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointment.html">
+                            <i class="fas fa-calendar-check me-1"></i> অ্যাপয়েন্টমেন্ট
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="food-plan.html">
+                            <i class="fas fa-utensils me-1"></i> খাদ্য পরিকল্পনা
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-phone-alt me-1"></i> যোগাযোগ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content text-center">
+                <h1 class="page-title">ডায়াবেটিস উপযোগী খাদ্য পরিকল্পনা</h1>
+                <p class="page-subtitle">সুষম ও পুষ্টিকর খাদ্যাভ্যাস গড়ে তুলুন এবং ডায়াবেটিস নিয়ন্ত্রণে রাখুন।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Plan Section -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Daily Meal Plan -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="section-title">দৈনিক খাদ্য পরিকল্পনা</h3>
+                </div>
+                
+                <!-- Breakfast -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-sun me-2"></i> সকালের নাস্তা</h5>
+                                <span class="badge bg-warning">৭:০০ - ৮:০০ AM</span>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <img src="https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Breakfast" class="img-fluid rounded-custom mb-3 food-card-img">
+                            
+                            <h6>মেনু:</h6>
+                            <ul class="mb-3">
+                                <li>ওটমিল (১ বাটি)</li>
+                                <li>সিদ্ধ ডিম (১টি)</li>
+                                <li>সবজি সালাদ</li>
+                                <li>গ্রিন টি (১ কাপ)</li>
+                            </ul>
+                            
+                            <div class="nutrition-info">
+                                <h6>পুষ্টিমান:</h6>
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">৩০০</div>
+                                        <small>ক্যালরি</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">১৫g</div>
+                                        <small>প্রোটিন</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">৪৫g</div>
+                                        <small>কার্ব</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lunch -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-cloud-sun me-2"></i> দুপুরের খাবার</h5>
+                                <span class="badge bg-info">১:০০ - ২:০০ PM</span>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Lunch" class="img-fluid rounded-custom mb-3 food-card-img">
+                            
+                            <h6>মেনু:</h6>
+                            <ul class="mb-3">
+                                <li>বাদামী চালের ভাত (১ কাপ)</li>
+                                <li>গ্রিলড মাছ/মুরগি</li>
+                                <li>সবজি তরকারি</li>
+                                <li>ডাল (১ বাটি)</li>
+                            </ul>
+                            
+                            <div class="nutrition-info">
+                                <h6>পুষ্টিমান:</h6>
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">৫০০</div>
+                                        <small>ক্যালরি</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">২৫g</div>
+                                        <small>প্রোটিন</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">৬০g</div>
+                                        <small>কার্ব</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Dinner -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0"><i class="fas fa-moon me-2"></i> রাতের খাবার</h5>
+                                <span class="badge bg-primary">৮:০০ - ৯:০০ PM</span>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" 
+                                 alt="Dinner" class="img-fluid rounded-custom mb-3 food-card-img">
+                            
+                            <h6>মেনু:</h6>
+                            <ul class="mb-3">
+                                <li>রুটি (২টি)</li>
+                                <li>সবজি কারি</li>
+                                <li>সালাদ</li>
+                                <li>দই (১ বাটি)</li>
+                            </ul>
+                            
+                            <div class="nutrition-info">
+                                <h6>পুষ্টিমান:</h6>
+                                <div class="row text-center">
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">৪০০</div>
+                                        <small>ক্যালরি</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">২০g</div>
+                                        <small>প্রোটিন</small>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="display-6 text-primary-custom">৫০g</div>
+                                        <small>কার্ব</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Snacks Section -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="section-title">স্ন্যাকস ও পানীয়</h3>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <h5 class="mb-0"><i class="fas fa-apple-alt me-2"></i> স্বাস্থ্যকর স্ন্যাকস</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">বাদাম</h6>
+                                            <p class="text-muted mb-0">১০-১৫ টি</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-apple-alt"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">আপেল</h6>
+                                            <p class="text-muted mb-0">১টি মাঝারি</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-cookie-bite"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">ক্র্যাকার</h6>
+                                            <p class="text-muted mb-0">২-৩টি</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-cheese"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">পনির</h6>
+                                            <p class="text-muted mb-0">১ স্লাইস</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-egg"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">সিদ্ধ ডিম</h6>
+                                            <p class="text-muted mb-0">১টি</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-carrot"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">গাজর</h6>
+                                            <p class="text-muted mb-0">১টি মাঝারি</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <h5 class="mb-0"><i class="fas fa-glass-whiskey me-2"></i> পানীয়</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-tint"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">পানি</h6>
+                                            <p class="text-muted mb-0">৮-১০ গ্লাস</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-mug-hot"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">গ্রিন টি</h6>
+                                            <p class="text-muted mb-0">২-৩ কাপ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-info text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-blender"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">সবজির রস</h6>
+                                            <p class="text-muted mb-0">১ গ্লাস</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-wine-bottle"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">কোমল পানীয়</h6>
+                                            <p class="text-muted mb-0">এড়িয়ে চলুন</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-beer"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">অ্যালকোহল</h6>
+                                            <p class="text-muted mb-0">এড়িয়ে চলুন</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center me-3" 
+                                             style="width: 40px; height: 40px;">
+                                            <i class="fas fa-coffee"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">চিনিযুক্ত চা</h6>
+                                            <p class="text-muted mb-0">সীমিত করুন</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Categories -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="section-title">খাদ্য বিভাগসমূহ</h3>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom bg-success">
+                            <h5 class="mb-0 text-white"><i class="fas fa-check-circle me-2"></i> খেতে পারেন</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-success">
+                                            <i class="fas fa-leaf"></i>
+                                        </div>
+                                        <h6>সবুজ শাকসবজি</h6>
+                                        <p class="text-muted small">পালং শাক, লাউ, মিষ্টি কুমড়া</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-success">
+                                            <i class="fas fa-apple-alt"></i>
+                                        </div>
+                                        <h6>ফল</h6>
+                                        <p class="text-muted small">আপেল, পেয়ারা, জাম্বুরা</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-success">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <h6>বাদাম ও বীজ</h6>
+                                        <p class="text-muted small">আমন্ড, আখরোট, ফ্ল্যাক্সসিড</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-success">
+                                            <i class="fas fa-fish"></i>
+                                        </div>
+                                        <h6>প্রোটিন</h6>
+                                        <p class="text-muted small">মাছ, মুরগি, ডিম, ডাল</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-success">
+                                            <i class="fas fa-wheat-alt"></i>
+                                        </div>
+                                        <h6>শস্য</h6>
+                                        <p class="text-muted small">বাদামী চাল, ওটস, বার্লি</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-success">
+                                            <i class="fas fa-wine-bottle"></i>
+                                        </div>
+                                        <h6>স্বাস্থ্যকর ফ্যাট</h6>
+                                        <p class="text-muted small">অলিভ অয়েল, ক্যানোলা অয়েল</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom bg-danger">
+                            <h5 class="mb-0 text-white"><i class="fas fa-times-circle me-2"></i> এড়িয়ে চলুন</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-danger">
+                                            <i class="fas fa-candy-cane"></i>
+                                        </div>
+                                        <h6>চিনি</h6>
+                                        <p class="text-muted small">সাদা চিনি, মিষ্টি</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-danger">
+                                            <i class="fas fa-hamburger"></i>
+                                        </div>
+                                        <h6>ফাস্ট ফুড</h6>
+                                        <p class="text-muted small">বার্গার, পিজ্জা, ফ্রাই</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-danger">
+                                            <i class="fas fa-bread-slice"></i>
+                                        </div>
+                                        <h6>সাদা আটা</h6>
+                                        <p class="text-muted small">সাদা রুটি, পরটা</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6 mb-3">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-danger">
+                                            <i class="fas fa-wine-bottle"></i>
+                                        </div>
+                                        <h6>কোমল পানীয়</h6>
+                                        <p class="text-muted small">সোডা, এনার্জি ড্রিংক</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-danger">
+                                            <i class="fas fa-drumstick-bite"></i>
+                                        </div>
+                                        <h6>প্রক্রিয়াজাত মাংস</h6>
+                                        <p class="text-muted small">সসেজ, বেকন, হটডগ</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="food-item">
+                                        <div class="food-icon bg-danger">
+                                            <i class="fas fa-cookie"></i>
+                                        </div>
+                                        <h6>প্যাকেটজাত স্ন্যাকস</h6>
+                                        <p class="text-muted small">চিপস, বিস্কুট, চকলেট</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meal Planner -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="section-title">খাবার প্ল্যানার</h3>
+                </div>
+                
+                <div class="col-12">
+                    <div class="card-custom">
+                        <div class="card-header-custom">
+                            <h5 class="mb-0"><i class="fas fa-calendar-alt me-2"></i> সাপ্তাহিক খাবার প্ল্যানার</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="mealPlannerTable">
+                                    <thead>
+                                        <tr>
+                                            <th>দিন</th>
+                                            <th>সকাল</th>
+                                            <th>দুপুর</th>
+                                            <th>রাত</th>
+                                            <th>স্ন্যাকস</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Meal plan will be generated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="text-center mt-4">
+                                <button class="btn btn-custom me-3" id="generateMealPlan">
+                                    <i class="fas fa-sync-alt me-2"></i> নতুন প্ল্যান তৈরি করুন
+                                </button>
+                                <button class="btn btn-outline-custom" id="saveMealPlan">
+                                    <i class="fas fa-save me-2"></i> প্ল্যান সংরক্ষণ করুন
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calorie Calculator -->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section-title">ক্যালরি ক্যালকুলেটর</h3>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <h5 class="mb-0"><i class="fas fa-calculator me-2"></i> ক্যালরি গণনা করুন</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <form id="calorieForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="calorieAge" class="form-label">বয়স</label>
+                                        <input type="number" class="form-control form-control-custom" id="calorieAge" min="15" max="100" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="calorieGender" class="form-label">লিঙ্গ</label>
+                                        <select class="form-control form-control-custom" id="calorieGender" required>
+                                            <option value="male">পুরুষ</option>
+                                            <option value="female">নারী</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="calorieWeight" class="form-label">ওজন (কেজি)</label>
+                                        <input type="number" class="form-control form-control-custom" id="calorieWeight" min="30" max="200" step="0.1" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="calorieHeight" class="form-label">উচ্চতা (সেমি)</label>
+                                        <input type="number" class="form-control form-control-custom" id="calorieHeight" min="100" max="250" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="calorieActivity" class="form-label">শারীরিক কার্যকলাপ</label>
+                                    <select class="form-control form-control-custom" id="calorieActivity" required>
+                                        <option value="sedentary">নিষ্ক্রিয়</option>
+                                        <option value="light">হালকা</option>
+                                        <option value="moderate">মাঝারি</option>
+                                        <option value="active">সক্রিয়</option>
+                                        <option value="very_active">অত্যন্ত সক্রিয়</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="calorieGoal" class="form-label">লক্ষ্য</label>
+                                    <select class="form-control form-control-custom" id="calorieGoal" required>
+                                        <option value="weight_loss">ওজন কমানো</option>
+                                        <option value="weight_maintain">ওজন বজায় রাখা</option>
+                                        <option value="weight_gain">ওজন বাড়ানো</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-custom" id="calculateCalories">
+                                        <i class="fas fa-calculator me-2"></i> ক্যালরি গণনা করুন
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <h5 class="mb-0"><i class="fas fa-chart-pie me-2"></i> ক্যালরি ফলাফল</h5>
+                        </div>
+                        <div class="card-body-custom text-center">
+                            <div id="calorieResult">
+                                <div class="display-4 mb-3 text-primary-custom" id="calorieValue">--</div>
+                                <h5 id="calorieDescription">দৈনিক ক্যালরি চাহিদা</h5>
+                                
+                                <div class="row mt-4">
+                                    <div class="col-4">
+                                        <div class="calorie-macro">
+                                            <div class="display-6 text-warning" id="carbsValue">--</div>
+                                            <small>কার্বোহাইড্রেট</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="calorie-macro">
+                                            <div class="display-6 text-primary" id="proteinValue">--</div>
+                                            <small>প্রোটিন</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="calorie-macro">
+                                            <div class="display-6 text-success" id="fatValue">--</div>
+                                            <small>ফ্যাট</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="chart-container mt-4" style="height: 200px;">
+                                    <canvas id="calorieChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/logo.png" alt="GLYCOCHECK Logo" class="navbar-logo">
+                        </a>
+                    </div>
+                    <p>ডায়াবেটিস নিয়ন্ত্রণে আধুনিক ও বিজ্ঞানসম্মত সমাধান। আপনার স্বাস্থ্য আমাদের অগ্রাধিকার।</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">লিংক</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> হোম</a></li>
+                        <li><a href="bmi.html"><i class="fas fa-calculator"></i> বিএমআই ক্যালকুলেটর</a></li>
+                        <li><a href="risk-assessment.html"><i class="fas fa-stethoscope"></i> ঝুঁকি মূল্যায়ন</a></li>
+                        <li><a href="health-data.html"><i class="fas fa-heartbeat"></i> স্বাস্থ্য তথ্য</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">সেবাসমূহ</h5>
+                    <ul class="footer-links">
+                        <li><a href="appointment.html"><i class="fas fa-calendar-check"></i> অ্যাপয়েন্টমেন্ট</a></li>
+                        <li><a href="food-plan.html"><i class="fas fa-utensils"></i> খাদ্য পরিকল্পনা</a></li>
+                        <li><a href="contact.html"><i class="fas fa-phone-alt"></i> যোগাযোগ</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> সাহায্য</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">নিউজলেটার সাবস্ক্রাইব</h5>
+                    <p>ডায়াবেটিস নিয়ন্ত্রণে আপডেট ও টিপস পেতে সাবস্ক্রাইব করুন।</p>
+                    <form class="mt-3" id="newsletterForm">
+                        <div class="input-group">
+                            <input type="email" class="form-control form-control-custom" placeholder="আপনার ইমেইল" required>
+                            <button class="btn btn-custom" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; ২০২৫ গ্লাইকোচেক। সর্বস্বত্ব সংরক্ষিত। ডিজাইন ও ডেভেলপমেন্ট: গ্লাইকোচেক টিম</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/food-plan.js"></script>
+</body>
+</html>
+
+<style>
+.food-card-img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.food-item {
+    text-align: center;
+    padding: 15px;
+}
+
+.food-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 24px;
+}
+
+.calorie-macro {
+    padding: 10px;
+}
+
+#calorieResult {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+</style>

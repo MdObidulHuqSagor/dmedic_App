@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>স্বাস্থ্য তথ্য | গ্লাইকোচেক</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body class="bengali">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="GLYCOCHECK Logo" class="navbar-logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i> হোম
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bmi.html">
+                            <i class="fas fa-calculator me-1"></i> বিএমআই ক্যালকুলেটর
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="risk-assessment.html">
+                            <i class="fas fa-stethoscope me-1"></i> ঝুঁকি মূল্যায়ন
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="health-data.html">
+                            <i class="fas fa-heartbeat me-1"></i> স্বাস্থ্য তথ্য
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="appointment.html">
+                            <i class="fas fa-calendar-check me-1"></i> অ্যাপয়েন্টমেন্ট
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="food-plan.html">
+                            <i class="fas fa-utensils me-1"></i> খাদ্য পরিকল্পনা
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-phone-alt me-1"></i> যোগাযোগ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content text-center">
+                <h1 class="page-title">স্বাস্থ্য তথ্য ব্যবস্থাপনা</h1>
+                <p class="page-subtitle">আপনার সমস্ত স্বাস্থ্য তথ্য এক জায়গায় সংরক্ষণ করুন, ট্র্যাক করুন এবং বিশ্লেষণ করুন।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Data Dashboard -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Quick Actions -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="card-custom">
+                        <div class="card-body-custom">
+                            <h4 class="mb-0">দ্রুত কার্যক্রম</h4>
+                            <div class="row mt-3">
+                                <div class="col-md-2 col-6 mb-3">
+                                    <button class="btn btn-outline-custom w-100" data-bs-toggle="modal" data-bs-target="#glucoseModal">
+                                        <i class="fas fa-tint mb-2"></i><br>
+                                        গ্লুকোজ যোগ
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <button class="btn btn-outline-custom w-100" data-bs-toggle="modal" data-bs-target="#bloodPressureModal">
+                                        <i class="fas fa-heartbeat mb-2"></i><br>
+                                        রক্তচাপ যোগ
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <button class="btn btn-outline-custom w-100" data-bs-toggle="modal" data-bs-target="#weightModal">
+                                        <i class="fas fa-weight mb-2"></i><br>
+                                        ওজন যোগ
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <button class="btn btn-outline-custom w-100" data-bs-toggle="modal" data-bs-target="#medicationModal">
+                                        <i class="fas fa-pills mb-2"></i><br>
+                                        ঔষধ যোগ
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <button class="btn btn-outline-custom w-100" data-bs-toggle="modal" data-bs-target="#symptomsModal">
+                                        <i class="fas fa-notes-medical mb-2"></i><br>
+                                        লক্ষণ যোগ
+                                    </button>
+                                </div>
+                                <div class="col-md-2 col-6 mb-3">
+                                    <button class="btn btn-outline-custom w-100" id="exportData">
+                                        <i class="fas fa-download mb-2"></i><br>
+                                        ডাটা ডাউনলোড
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Summary Cards -->
+            <div class="row mb-5">
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card-custom text-center h-100">
+                        <div class="card-body-custom">
+                            <div class="display-6 mb-2 text-primary-custom" id="latestGlucose">--</div>
+                            <h6>গ্লুকোজ (mg/dL)</h6>
+                            <p class="text-muted small">সর্বশেষ রিডিং</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card-custom text-center h-100">
+                        <div class="card-body-custom">
+                            <div class="display-6 mb-2 text-primary-custom" id="latestBP">--</div>
+                            <h6>রক্তচাপ</h6>
+                            <p class="text-muted small">সর্বশেষ রিডিং</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card-custom text-center h-100">
+                        <div class="card-body-custom">
+                            <div class="display-6 mb-2 text-primary-custom" id="latestWeight">--</div>
+                            <h6>ওজন (kg)</h6>
+                            <p class="text-muted small">সর্বশেষ রিডিং</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-6 mb-3">
+                    <div class="card-custom text-center h-100">
+                        <div class="card-body-custom">
+                            <div class="display-6 mb-2 text-primary-custom" id="totalRecords">0</div>
+                            <h6>মোট রেকর্ড</h6>
+                            <p class="text-muted small">সংরক্ষিত ডাটা</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="row mb-5">
+                <div class="col-lg-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <h5 class="mb-0"><i class="fas fa-chart-line me-2"></i> গ্লুকোজ ট্রেন্ড</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="chart-container">
+                                <canvas id="glucoseChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom">
+                            <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i> ওজন ট্রেন্ড</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="chart-container">
+                                <canvas id="weightChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blood Pressure Chart -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="card-custom">
+                        <div class="card-header-custom">
+                            <h5 class="mb-0"><i class="fas fa-heartbeat me-2"></i> রক্তচাপ ট্রেন্ড</h5>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="chart-container">
+                                <canvas id="bpChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Tables -->
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="section-title">স্বাস্থ্য রেকর্ডসমূহ</h3>
+                </div>
+                
+                <!-- Glucose Records -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-tint me-2"></i> গ্লুকোজ রেকর্ড</h5>
+                            <button class="btn btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#glucoseModal">
+                                <i class="fas fa-plus me-1"></i> নতুন
+                            </button>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="glucoseTable">
+                                    <thead>
+                                        <tr>
+                                            <th>তারিখ</th>
+                                            <th>সময়</th>
+                                            <th>মাত্রা</th>
+                                            <th>টাইপ</th>
+                                            <th>কার্যক্রম</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="glucoseTableBody">
+                                        <!-- Glucose records will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blood Pressure Records -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-heartbeat me-2"></i> রক্তচাপ রেকর্ড</h5>
+                            <button class="btn btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#bloodPressureModal">
+                                <i class="fas fa-plus me-1"></i> নতুন
+                            </button>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="bpTable">
+                                    <thead>
+                                        <tr>
+                                            <th>তারিখ</th>
+                                            <th>সিস্টোলিক</th>
+                                            <th>ডায়াস্টোলিক</th>
+                                            <th>পালস</th>
+                                            <th>কার্যক্রম</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="bpTableBody">
+                                        <!-- BP records will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Weight Records -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-weight me-2"></i> ওজন রেকর্ড</h5>
+                            <button class="btn btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#weightModal">
+                                <i class="fas fa-plus me-1"></i> নতুন
+                            </button>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="weightTable">
+                                    <thead>
+                                        <tr>
+                                            <th>তারিখ</th>
+                                            <th>ওজন (kg)</th>
+                                            <th>বিএমআই</th>
+                                            <th>পরিবর্তন</th>
+                                            <th>কার্যক্রম</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="weightTableBody">
+                                        <!-- Weight records will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Medication Records -->
+                <div class="col-lg-6 mb-4">
+                    <div class="card-custom h-100">
+                        <div class="card-header-custom d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0"><i class="fas fa-pills me-2"></i> ঔষধ রিমাইন্ডার</h5>
+                            <button class="btn btn-sm btn-custom" data-bs-toggle="modal" data-bs-target="#medicationModal">
+                                <i class="fas fa-plus me-1"></i> নতুন
+                            </button>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="medicationTable">
+                                    <thead>
+                                        <tr>
+                                            <th>ঔষধের নাম</th>
+                                            <th>মাত্রা</th>
+                                            <th>সময়</th>
+                                            <th>স্ট্যাটাস</th>
+                                            <th>কার্যক্রম</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="medicationTableBody">
+                                        <!-- Medication records will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Glucose Modal -->
+    <div class="modal fade" id="glucoseModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title"><i class="fas fa-tint me-2"></i> গ্লুকোজ যোগ করুন</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="glucoseForm">
+                        <div class="mb-3">
+                            <label for="glucoseValue" class="form-label">গ্লুকোজ মাত্রা (mg/dL)</label>
+                            <input type="number" class="form-control form-control-custom" id="glucoseValue" required min="50" max="500">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="glucoseTime" class="form-label">সময়</label>
+                            <select class="form-control form-control-custom" id="glucoseTime" required>
+                                <option value="">নির্বাচন করুন</option>
+                                <option value="fasting">সকালে খালি পেটে</option>
+                                <option value="after_breakfast">সকালের নাস্তার ২ ঘণ্টা পর</option>
+                                <option value="before_lunch">দুপুরের খাবারের আগে</option>
+                                <option value="after_lunch">দুপুরের খাবারের ২ ঘণ্টা পর</option>
+                                <option value="before_dinner">রাতের খাবারের আগে</option>
+                                <option value="after_dinner">রাতের খাবারের ২ ঘণ্টা পর</option>
+                                <option value="bedtime">ঘুমানোর আগে</option>
+                                <option value="random">যেকোন সময়</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="glucoseDate" class="form-label">তারিখ</label>
+                            <input type="date" class="form-control form-control-custom" id="glucoseDate" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="glucoseNotes" class="form-label">মন্তব্য (যদি থাকে)</label>
+                            <textarea class="form-control form-control-custom" id="glucoseNotes" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="button" class="btn btn-custom" id="saveGlucose">সংরক্ষণ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blood Pressure Modal -->
+    <div class="modal fade" id="bloodPressureModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title"><i class="fas fa-heartbeat me-2"></i> রক্তচাপ যোগ করুন</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bpForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="systolic" class="form-label">সিস্টোলিক (উচ্চ)</label>
+                                <input type="number" class="form-control form-control-custom" id="systolic" required min="70" max="200">
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="diastolic" class="form-label">ডায়াস্টোলিক (নিম্ন)</label>
+                                <input type="number" class="form-control form-control-custom" id="diastolic" required min="40" max="130">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="pulse" class="form-label">পালস রেট (প্রতি মিনিটে)</label>
+                            <input type="number" class="form-control form-control-custom" id="pulse" min="40" max="200">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="bpDate" class="form-label">তারিখ ও সময়</label>
+                            <input type="datetime-local" class="form-control form-control-custom" id="bpDate" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="bpNotes" class="form-label">মন্তব্য (যদি থাকে)</label>
+                            <textarea class="form-control form-control-custom" id="bpNotes" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="button" class="btn btn-custom" id="saveBP">সংরক্ষণ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weight Modal -->
+    <div class="modal fade" id="weightModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title"><i class="fas fa-weight me-2"></i> ওজন যোগ করুন</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="weightForm">
+                        <div class="mb-3">
+                            <label for="weightValue" class="form-label">ওজন (কেজি)</label>
+                            <input type="number" class="form-control form-control-custom" id="weightValue" required min="30" max="200" step="0.1">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="heightValue" class="form-label">উচ্চতা (সেমি)</label>
+                                <input type="number" class="form-control form-control-custom" id="heightValue" min="100" max="250">
+                            </div>
+                            
+                            <div class="col-md-6 mb-3">
+                                <label for="bmiValue" class="form-label">বিএমআই (স্বয়ংক্রিয়)</label>
+                                <input type="text" class="form-control form-control-custom" id="bmiValue" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="weightDate" class="form-label">তারিখ</label>
+                            <input type="date" class="form-control form-control-custom" id="weightDate" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="weightNotes" class="form-label">মন্তব্য (যদি থাকে)</label>
+                            <textarea class="form-control form-control-custom" id="weightNotes" rows="2"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="button" class="btn btn-custom" id="saveWeight">সংরক্ষণ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Medication Modal -->
+    <div class="modal fade" id="medicationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title"><i class="fas fa-pills me-2"></i> ঔষধ যোগ করুন</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="medicationForm">
+                        <div class="mb-3">
+                            <label for="medicationName" class="form-label">ঔষধের নাম</label>
+                            <input type="text" class="form-control form-control-custom" id="medicationName" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="medicationDose" class="form-label">মাত্রা</label>
+                            <input type="text" class="form-control form-control-custom" id="medicationDose" placeholder="উদা: ৫০০ মিগ্রা, ১ ট্যাবলেট" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="medicationFrequency" class="form-label">কতবার</label>
+                            <select class="form-control form-control-custom" id="medicationFrequency" required>
+                                <option value="">নির্বাচন করুন</option>
+                                <option value="once_daily">দিনে একবার</option>
+                                <option value="twice_daily">দিনে দুইবার</option>
+                                <option value="thrice_daily">দিনে তিনবার</option>
+                                <option value="four_times">দিনে চারবার</option>
+                                <option value="as_needed">প্রয়োজন অনুযায়ী</option>
+                                <option value="weekly">সপ্তাহে একবার</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="medicationTime" class="form-label">সময়</label>
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="morningTime" value="morning">
+                                        <label class="form-check-label" for="morningTime">সকাল</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="afternoonTime" value="afternoon">
+                                        <label class="form-check-label" for="afternoonTime">দুপুর</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="eveningTime" value="evening">
+                                        <label class="form-check-label" for="eveningTime">রাত</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="medicationStartDate" class="form-label">শুরুর তারিখ</label>
+                            <input type="date" class="form-control form-control-custom" id="medicationStartDate" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="medicationNotes" class="form-label">নির্দেশনা (যদি থাকে)</label>
+                            <textarea class="form-control form-control-custom" id="medicationNotes" rows="2" placeholder="খাবারের আগে/পরে, অন্য ঔষধের সাথে ইত্যাদি"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="button" class="btn btn-custom" id="saveMedication">সংরক্ষণ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Symptoms Modal -->
+    <div class="modal fade" id="symptomsModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title"><i class="fas fa-notes-medical me-2"></i> লক্ষণ যোগ করুন</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="symptomsForm">
+                        <div class="mb-3">
+                            <label for="symptomType" class="form-label">লক্ষণের ধরন</label>
+                            <select class="form-control form-control-custom" id="symptomType" required>
+                                <option value="">নির্বাচন করুন</option>
+                                <option value="thirst">অতিরিক্ত তৃষ্ণা</option>
+                                <option value="urination">ঘন ঘন প্রস্রাব</option>
+                                <option value="hunger">অতিরিক্ত ক্ষুধা</option>
+                                <option value="fatigue">ক্লান্তি</option>
+                                <option value="blurred_vision">ঝাপসা দৃষ্টি</option>
+                                <option value="weight_loss">ওজন হ্রাস</option>
+                                <option value="numbness">হাত-পায়ে ঝিনঝিন বা অবশ ভাব</option>
+                                <option value="slow_healing">ক্ষত শুকাতে বেশি সময় লাগা</option>
+                                <option value="infection">ঘন ঘন সংক্রমণ</option>
+                                <option value="other">অন্যান্য</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="symptomSeverity" class="form-label">তীব্রতা</label>
+                            <select class="form-control form-control-custom" id="symptomSeverity" required>
+                                <option value="">নির্বাচন করুন</option>
+                                <option value="mild">হালকা</option>
+                                <option value="moderate">মাঝারি</option>
+                                <option value="severe">তীব্র</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="symptomDate" class="form-label">তারিখ</label>
+                            <input type="date" class="form-control form-control-custom" id="symptomDate" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="symptomDescription" class="form-label">বিবরণ</label>
+                            <textarea class="form-control form-control-custom" id="symptomDescription" rows="3" placeholder="লক্ষণ সম্পর্কে বিস্তারিত লিখুন..." required></textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="symptomDuration" class="form-label">স্থায়িত্ব</label>
+                            <input type="text" class="form-control form-control-custom" id="symptomDuration" placeholder="উদা: ২ দিন, ১ সপ্তাহ">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">বাতিল</button>
+                    <button type="button" class="btn btn-custom" id="saveSymptom">সংরক্ষণ করুন</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/logo.png" alt="GLYCOCHECK Logo" class="navbar-logo">
+                        </a>
+                    </div>
+                    <p>ডায়াবেটিস নিয়ন্ত্রণে আধুনিক ও বিজ্ঞানসম্মত সমাধান। আপনার স্বাস্থ্য আমাদের অগ্রাধিকার।</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">লিংক</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> হোম</a></li>
+                        <li><a href="bmi.html"><i class="fas fa-calculator"></i> বিএমআই ক্যালকুলেটর</a></li>
+                        <li><a href="risk-assessment.html"><i class="fas fa-stethoscope"></i> ঝুঁকি মূল্যায়ন</a></li>
+                        <li><a href="health-data.html"><i class="fas fa-heartbeat"></i> স্বাস্থ্য তথ্য</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">সেবাসমূহ</h5>
+                    <ul class="footer-links">
+                        <li><a href="appointment.html"><i class="fas fa-calendar-check"></i> অ্যাপয়েন্টমেন্ট</a></li>
+                        <li><a href="food-plan.html"><i class="fas fa-utensils"></i> খাদ্য পরিকল্পনা</a></li>
+                        <li><a href="contact.html"><i class="fas fa-phone-alt"></i> যোগাযোগ</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> সাহায্য</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">নিউজলেটার সাবস্ক্রাইব</h5>
+                    <p>ডায়াবেটিস নিয়ন্ত্রণে আপডেট ও টিপস পেতে সাবস্ক্রাইব করুন।</p>
+                    <form class="mt-3" id="newsletterForm">
+                        <div class="input-group">
+                            <input type="email" class="form-control form-control-custom" placeholder="আপনার ইমেইল" required>
+                            <button class="btn btn-custom" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; ২০২৫ গ্লাইকোচেক। সর্বস্বত্ব সংরক্ষিত। ডিজাইন ও ডেভেলপমেন্ট: গ্লাইকোচেক টিম</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/health-data.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* css/responsive.css */
+
+/* Extra small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+    body {
+        padding-top: 66px;
+    }
+    
+    .page-header {
+        padding: 60px 0 30px;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .btn-custom, .btn-outline-custom {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .bmi-value {
+        font-size: 2.5rem;
+    }
+    
+    .bmi-category {
+        font-size: 1.2rem;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .offline-alert {
+        top: 66px;
+    }
+    
+    .card-body-custom {
+        padding: 20px;
+    }
+    
+    .time-slots-container {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .page-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .footer,
+    .back-to-top,
+    .btn-custom,
+    .btn-outline-custom {
+        display: none !important;
+    }
+    
+    body {
+        padding-top: 0;
+        background: white;
+    }
+    
+    .page-header {
+        background: white !important;
+        color: black !important;
+        padding: 20px 0;
+    }
+    
+    .card-custom {
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+    }
+    
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+}

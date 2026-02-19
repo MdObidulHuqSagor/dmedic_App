@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>অ্যাপয়েন্টমেন্ট | গ্লাইকোচেক</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body class="bengali">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="GLYCOCHECK Logo" class="navbar-logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i> হোম
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bmi.html">
+                            <i class="fas fa-calculator me-1"></i> বিএমআই ক্যালকুলেটর
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="risk-assessment.html">
+                            <i class="fas fa-stethoscope me-1"></i> ঝুঁকি মূল্যায়ন
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="health-data.html">
+                            <i class="fas fa-heartbeat me-1"></i> স্বাস্থ্য তথ্য
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="appointment.html">
+                            <i class="fas fa-calendar-check me-1"></i> অ্যাপয়েন্টমেন্ট
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="food-plan.html">
+                            <i class="fas fa-utensils me-1"></i> খাদ্য পরিকল্পনা
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fas fa-phone-alt me-1"></i> যোগাযোগ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header-content text-center">
+                <h1 class="page-title">ডাক্তার অ্যাপয়েন্টমেন্ট</h1>
+                <p class="page-subtitle">বিশেষজ্ঞ ডাক্তারের সাথে অনলাইনে অ্যাপয়েন্টমেন্ট বুক করুন এবং স্বাস্থ্য সেবা নিন।</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Doctors List -->
+                <div class="col-lg-4 mb-4">
+                    <div class="card-custom sticky-top" style="top: 100px;">
+                        <div class="card-header-custom">
+                            <h4 class="mb-0"><i class="fas fa-user-md me-2"></i> আমাদের বিশেষজ্ঞগণ</h4>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="list-group list-group-flush" id="doctorsList">
+                                <!-- Doctors will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Appointment Form -->
+                <div class="col-lg-8 mb-4">
+                    <div class="card-custom">
+                        <div class="card-header-custom">
+                            <h4 class="mb-0"><i class="fas fa-calendar-plus me-2"></i> অ্যাপয়েন্টমেন্ট বুকিং</h4>
+                        </div>
+                        <div class="card-body-custom">
+                            <form id="appointmentForm">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="patientName" class="form-label">
+                                            <i class="fas fa-user me-2"></i> রোগীর নাম
+                                        </label>
+                                        <input type="text" class="form-control form-control-custom" id="patientName" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="patientAge" class="form-label">
+                                            <i class="fas fa-birthday-cake me-2"></i> বয়স
+                                        </label>
+                                        <input type="number" class="form-control form-control-custom" id="patientAge" min="1" max="120" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="patientPhone" class="form-label">
+                                            <i class="fas fa-phone me-2"></i> মোবাইল নম্বর
+                                        </label>
+                                        <input type="tel" class="form-control form-control-custom" id="patientPhone" pattern="[0-9]{10,11}" required>
+                                        <div class="form-text">উদাহরণ: ০১৭১২৩৪৫৬৭৮</div>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="patientEmail" class="form-label">
+                                            <i class="fas fa-envelope me-2"></i> ইমেইল (ঐচ্ছিক)
+                                        </label>
+                                        <input type="email" class="form-control form-control-custom" id="patientEmail">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="selectedDoctor" class="form-label">
+                                        <i class="fas fa-user-md me-2"></i> ডাক্তার নির্বাচন
+                                    </label>
+                                    <select class="form-control form-control-custom" id="selectedDoctor" required>
+                                        <option value="">একজন ডাক্তার নির্বাচন করুন</option>
+                                        <!-- Doctors will be loaded here -->
+                                    </select>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="appointmentDate" class="form-label">
+                                            <i class="fas fa-calendar-alt me-2"></i> তারিখ নির্বাচন
+                                        </label>
+                                        <input type="date" class="form-control form-control-custom" id="appointmentDate" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="appointmentType" class="form-label">
+                                            <i class="fas fa-stethoscope me-2"></i> পরামর্শের ধরন
+                                        </label>
+                                        <select class="form-control form-control-custom" id="appointmentType" required>
+                                            <option value="">নির্বাচন করুন</option>
+                                            <option value="new">নতুন রোগী</option>
+                                            <option value="followup">ফলোআপ</option>
+                                            <option value="emergency">জরুরী</option>
+                                            <option value="consultation">পরামর্শ</option>
+                                            <option value="test_report">টেস্ট রিপোর্ট</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">
+                                        <i class="fas fa-clock me-2"></i> সময় স্লট নির্বাচন
+                                    </label>
+                                    <div class="time-slots-container" id="timeSlots">
+                                        <!-- Time slots will be generated here -->
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="healthIssue" class="form-label">
+                                        <i class="fas fa-comment-medical me-2"></i> স্বাস্থ্য সমস্যার বিবরণ
+                                    </label>
+                                    <textarea class="form-control form-control-custom" id="healthIssue" rows="4" placeholder="আপনার স্বাস্থ্য সমস্যা সম্পর্কে বিস্তারিত লিখুন..." required></textarea>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="previousHistory" class="form-label">
+                                        <i class="fas fa-history me-2"></i> পূর্ববর্তী চিকিৎসা ইতিহাস (যদি থাকে)
+                                    </label>
+                                    <textarea class="form-control form-control-custom" id="previousHistory" rows="3" placeholder="পূর্বে কোন ডাক্তার দেখিয়েছেন, কোন ঔষধ খাচ্ছেন ইত্যাদি..."></textarea>
+                                </div>
+                                
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" id="termsAgreement" required>
+                                    <label class="form-check-label" for="termsAgreement">
+                                        আমি সম্মত হয়েছি যে আমার প্রদত্ত তথ্য সঠিক এবং 
+                                        <a href="#" class="text-primary-custom">সেবার শর্তাবলী</a> ও 
+                                        <a href="#" class="text-primary-custom">গোপনীয়তা নীতি</a> মেনে চলব।
+                                    </label>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-custom me-3">
+                                        <i class="fas fa-calendar-check me-2"></i> অ্যাপয়েন্টমেন্ট কনফার্ম করুন
+                                    </button>
+                                    <button type="button" class="btn btn-outline-custom" id="resetAppointmentForm">
+                                        <i class="fas fa-redo me-2"></i> রিসেট করুন
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Appointment History -->
+                    <div class="card-custom mt-4">
+                        <div class="card-header-custom">
+                            <h4 class="mb-0"><i class="fas fa-history me-2"></i> পূর্বের অ্যাপয়েন্টমেন্টসমূহ</h4>
+                        </div>
+                        <div class="card-body-custom">
+                            <div class="table-responsive">
+                                <table class="table table-hover" id="appointmentHistoryTable">
+                                    <thead>
+                                        <tr>
+                                            <th>তারিখ</th>
+                                            <th>ডাক্তার</th>
+                                            <th>সময়</th>
+                                            <th>স্ট্যাটাস</th>
+                                            <th>কার্যক্রম</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="appointmentHistoryBody">
+                                        <!-- Appointment history will be loaded here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Details Modal -->
+    <div class="modal fade" id="doctorDetailsModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title" id="doctorModalTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <img id="doctorModalImage" src="" alt="Doctor" class="img-fluid rounded-custom mb-3">
+                            <div class="doctor-rating mb-3" id="doctorModalRating"></div>
+                            <button class="btn btn-custom w-100" id="bookThisDoctor">
+                                <i class="fas fa-calendar-plus me-2"></i> বুক করুন
+                            </button>
+                        </div>
+                        <div class="col-md-8">
+                            <h6 class="text-primary-custom mb-3" id="doctorModalSpecialty"></h6>
+                            <p id="doctorModalDescription"></p>
+                            
+                            <h6 class="mt-4 mb-3">যোগ্যতা</h6>
+                            <ul id="doctorModalQualifications" class="mb-4"></ul>
+                            
+                            <h6 class="mt-4 mb-3">পরামর্শের সময়</h6>
+                            <div id="doctorModalSchedule"></div>
+                            
+                            <h6 class="mt-4 mb-3">পরামর্শ ফি</h6>
+                            <div class="alert alert-info alert-custom mb-0">
+                                <i class="fas fa-money-bill-wave me-2"></i>
+                                <span id="doctorModalFee"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Appointment Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-custom">
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title"><i class="fas fa-check-circle me-2"></i> অ্যাপয়েন্টমেন্ট কনফার্মেশন</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-calendar-check display-1 text-success mb-4"></i>
+                    <h4 class="mb-3">আপনার অ্যাপয়েন্টমেন্ট কনফার্ম হয়েছে!</h4>
+                    
+                    <div class="confirmation-details text-start mb-4">
+                        <p><strong>রেফারেন্স নম্বর:</strong> <span id="confirmationRef"></span></p>
+                        <p><strong>রোগীর নাম:</strong> <span id="confirmationName"></span></p>
+                        <p><strong>ডাক্তার:</strong> <span id="confirmationDoctor"></span></p>
+                        <p><strong>তারিখ:</strong> <span id="confirmationDate"></span></p>
+                        <p><strong>সময়:</strong> <span id="confirmationTime"></span></p>
+                        <p><strong>পরামর্শ ফি:</strong> <span id="confirmationFee"></span></p>
+                    </div>
+                    
+                    <div class="alert alert-warning alert-custom mb-4">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        অনুগ্রহ করে নির্ধারিত সময়ের ১৫ মিনিট আগে উপস্থিত হন এবং আপনার সকল স্বাস্থ্য রিপোর্ট সাথে আনুন।
+                    </div>
+                    
+                    <button class="btn btn-custom me-2" onclick="printConfirmation()">
+                        <i class="fas fa-print me-2"></i> প্রিন্ট করুন
+                    </button>
+                    <button class="btn btn-outline-custom" onclick="shareConfirmation()">
+                        <i class="fas fa-share-alt me-2"></i> শেয়ার করুন
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/logo.png" alt="GLYCOCHECK Logo" class="navbar-logo">
+                        </a>
+                    </div>
+                    <p>ডায়াবেটিস নিয়ন্ত্রণে আধুনিক ও বিজ্ঞানসম্মত সমাধান। আপনার স্বাস্থ্য আমাদের অগ্রাধিকার।</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">লিংক</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-home"></i> হোম</a></li>
+                        <li><a href="bmi.html"><i class="fas fa-calculator"></i> বিএমআই ক্যালকুলেটর</a></li>
+                        <li><a href="risk-assessment.html"><i class="fas fa-stethoscope"></i> ঝুঁকি মূল্যায়ন</a></li>
+                        <li><a href="health-data.html"><i class="fas fa-heartbeat"></i> স্বাস্থ্য তথ্য</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5 class="footer-title">সেবাসমূহ</h5>
+                    <ul class="footer-links">
+                        <li><a href="appointment.html"><i class="fas fa-calendar-check"></i> অ্যাপয়েন্টমেন্ট</a></li>
+                        <li><a href="food-plan.html"><i class="fas fa-utensils"></i> খাদ্য পরিকল্পনা</a></li>
+                        <li><a href="contact.html"><i class="fas fa-phone-alt"></i> যোগাযোগ</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> সাহায্য</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">নিউজলেটার সাবস্ক্রাইব</h5>
+                    <p>ডায়াবেটিস নিয়ন্ত্রণে আপডেট ও টিপস পেতে সাবস্ক্রাইব করুন।</p>
+                    <form class="mt-3" id="newsletterForm">
+                        <div class="input-group">
+                            <input type="email" class="form-control form-control-custom" placeholder="আপনার ইমেইল" required>
+                            <button class="btn btn-custom" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; ২০২৫ গ্লাইকোচেক। সর্বস্বত্ব সংরক্ষিত। ডিজাইন ও ডেভেলপমেন্ট: গ্লাইকোচেক টিম</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/appointment.js"></script>
+</body>
+</html>
