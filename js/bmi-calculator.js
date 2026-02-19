@@ -277,7 +277,7 @@ function shareBMIResult() {
         return;
     }
     
-    const shareText = `আমার বিএমআই ফলাফল: ${bmiValue} (${bmiCategory}) - গ্লাইকোচেক`;
+    const shareText = `আমার বিএমআই ফলাফল: ${bmiValue} (${bmiCategory}) - ডি-মেডিক`;
     const shareUrl = window.location.href;
     
     if (navigator.share) {

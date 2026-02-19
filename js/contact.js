@@ -151,8 +151,8 @@ function showDemoChat() {
                 <div class="card-body p-3" style="height: 300px; overflow-y: auto;" id="chatBody">
                     <div class="chat-message mb-3">
                         <div class="message-bubble bg-light p-2 rounded">
-                            <small class="text-muted">গ্লাইকোচেক সহায়তা:</small>
-                            <p class="mb-0">আসসালামু আলাইকুম! গ্লাইকোচেক সেন্টারে আপনাকে স্বাগতম। কিভাবে আপনাকে সাহায্য করতে পারি?</p>
+                            <small class="text-muted">ডি-মেডিক সহায়তা:</small>
+                            <p class="mb-0">আসসালামু আলাইকুম! ডি-মেডিক সেন্টারে আপনাকে স্বাগতম। কিভাবে আপনাকে সাহায্য করতে পারি?</p>
                         </div>
                     </div>
                 </div>
@@ -227,7 +227,7 @@ window.sendChatMessage = function() {
         const botMessage = `
             <div class="chat-message mb-3">
                 <div class="message-bubble bg-light p-2 rounded">
-                    <small class="text-muted">গ্লাইকোচেক সহায়তা:</small>
+                    <small class="text-muted">ডি-মেডিক সহায়তা:</small>
                     <p class="mb-0">${randomResponse}</p>
                 </div>
             </div>
@@ -271,7 +271,7 @@ function initGoogleMap() {
         const marker = new google.maps.Marker({
             position: dhakaLocation,
             map: map,
-            title: "গ্লাইকোচেক সেন্টার",
+            title: "ডি-মেডিক সেন্টার",
             icon: {
                 url: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
             }
@@ -281,7 +281,7 @@ function initGoogleMap() {
         const infoWindow = new google.maps.InfoWindow({
             content: `
                 <div style="padding: 10px;">
-                    <h5 style="margin: 0 0 10px 0; color: #008080;">গ্লাইকোচেক সেন্টার</h5>
+                    <h5 style="margin: 0 0 10px 0; color: #008080;">ডি-মেডিক সেন্টার</h5>
                     <p style="margin: 0 0 5px 0;">১২৩ আফতাব নগর, ঢাকা-১২১২</p>
                     <p style="margin: 0 0 5px 0;">বাংলাদেশ</p>
                     <p style="margin: 0;"><strong>ফোন:</strong> +৮৮০ ১৭০০-১২৩৪৫৬</p>
@@ -311,7 +311,7 @@ function showStaticMap() {
         <div style="height: 100%; width: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
             <div style="text-align: center; padding: 20px;">
                 <i class="fas fa-map-marker-alt display-1 text-primary-custom mb-3"></i>
-                <h5 class="mb-2">গ্লাইকোচেক সেন্টার</h5>
+                <h5 class="mb-2">ডি-মেডিক সেন্টার</h5>
                 <p class="text-muted mb-1">১২৩ আফতাব নগর, ঢাকা-১২১২</p>
                 <p class="text-muted">বাংলাদেশ</p>
                 <div class="mt-4">

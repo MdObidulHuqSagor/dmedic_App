@@ -639,8 +639,8 @@ function showDemoChat() {
                 <div class="card-body p-3" style="height: 300px; overflow-y: auto;">
                     <div class="chat-message mb-3">
                         <div class="message-bubble bg-light p-2 rounded">
-                            <small class="text-muted">গ্লাইকোচেক সহায়তা:</small>
-                            <p class="mb-0">আসসালামু আলাইকুম! গ্লাইকোচেক সেন্টারে আপনাকে স্বাগতম। কিভাবে আপনাকে সাহায্য করতে পারি?</p>
+                            <small class="text-muted">ডি-মেডিক সহায়তা:</small>
+                            <p class="mb-0">আসসালামু আলাইকুম! ডি-মেডিক সেন্টারে আপনাকে স্বাগতম। কিভাবে আপনাকে সাহায্য করতে পারি?</p>
                         </div>
                     </div>
                 </div>
@@ -714,7 +714,7 @@ window.sendChatMessage = function() {
         const botMessage = `
             <div class="chat-message mb-3">
                 <div class="message-bubble bg-light p-2 rounded">
-                    <small class="text-muted">গ্লাইকোচেক সহায়তা:</small>
+                    <small class="text-muted">ডি-মেডিক সহায়তা:</small>
                     <p class="mb-0">${randomResponse}</p>
                 </div>
             </div>
@@ -731,11 +731,11 @@ window.printConfirmation = function() {
 
 window.shareConfirmation = function() {
     const refNumber = document.getElementById('confirmationRef').textContent;
-    const shareText = `আমার গ্লাইকোচেক অ্যাপয়েন্টমেন্ট কনফার্ম হয়েছে। রেফারেন্স নম্বর: ${refNumber}`;
+    const shareText = `আমার ডি-মেডিক অ্যাপয়েন্টমেন্ট কনফার্ম হয়েছে। রেফারেন্স নম্বর: ${refNumber}`;
     
     if (navigator.share) {
         navigator.share({
-            title: 'গ্লাইকোচেক অ্যাপয়েন্টমেন্ট',
+            title: 'ডি-মেডিক অ্যাপয়েন্টমেন্ট',
             text: shareText,
             url: window.location.href
         });
