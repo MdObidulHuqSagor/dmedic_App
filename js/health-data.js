@@ -771,7 +771,7 @@ function exportAllData() {
         medication: DMedicUtils.getFromLocalStorage('medicationRecords') || [],
         symptoms: DMedicUtils.getFromLocalStorage('symptomRecords') || [],
         export_date: new Date().toISOString(),
-        source: 'GLYCOCHECK Health Data'
+        source: 'DMEDIC Health Data'
     };
     
     // Convert to JSON
